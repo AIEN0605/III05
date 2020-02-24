@@ -1,0 +1,81 @@
+.toTop-arrow {
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-radius: 33%;
+    opacity: 0.6;
+    background: #000;
+    cursor: pointer;
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    display: none;
+}
+.toTop-arrow::before,
+.toTop-arrow::after {
+    width: 18px;
+    height: 5px;
+    border-radius: 3px;
+    background: #f90;
+    position: absolute;
+    content: "";
+}
+.toTop-arrow::before {
+    transform: rotate(-45deg) translate(0, -50%);
+    left: 0.5rem;
+}
+.toTop-arrow::after {
+    transform: rotate(45deg) translate(0, -50%);
+    right: 0.5rem;
+}
+.toTop-arrow:focus {
+    outline: none;
+}
+
+
+.fonthead {
+    font-family: 'Architects Daughter';
+    font-size: 30px;
+}
+
+.des {
+    height: 400px;
+    width: 600px;
+}
+
+.carousel-item {
+    height: 500px;
+}
+
+.hr-style {
+    height: 12px;
+    border: 0;
+    box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+}
+
+.content {
+    font-family: 'Rajdhani';
+}
+
+.btnContent {
+    font-family: 'Architects Daughter';
+    font-size: 30px;
+}
+
+.imgAlign {
+    float: left;
+    height: 300px;
+    width: 500px;
+    padding: 20px;
+}
+
+.button1 {
+    float: right;
+    font-family: 'Architects Daughter';
+    font-size: 30px;
+    border-radius: 10px;
+    margin-left: 10px;
+    background-color: rgb(145, 205, 245)
+}

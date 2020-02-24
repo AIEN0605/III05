@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "微軟正黑體";
+    /*border: 3px solid black;*/
+
+}
+body{
+    /*background: linear-gradient(180deg, rgba(27, 27, 27, 1)0%, rgba(223, 224, 227, 1)60%);*/
+    /*background: -moz-linear-gradient(180deg, rgba(27, 27, 27, 1)0%, rgba(223, 224, 227, 1)60%);*/
+    /*background: -webkit-linear-gradient(180deg, rgba(27, 27, 27, 1)0%, rgba(223, 224, 227, 1)60%);*/
+    /*background: -o-linear-gradient(180deg, rgba(27, 27, 27, 1)0%, rgba(223, 224, 227, 1)60%);*/
+    /*background: linear-gradient(282deg, rgba(53, 161, 235, 0.2)0%, rgba(52, 162, 235, 0.3)91%);*/
+    /*background: -moz-linear-gradient(282deg, rgba(53, 161, 235, 0.2)0%, rgba(52, 162, 235, 0.3)91%);*/
+    /*background: -webkit-linear-gradient(282deg, rgba(53, 161, 235, 0.2)0%, rgba(52, 162, 235, 0.3)91%);*/
+    /*background: -o-linear-gradient(282deg, rgba(53, 161, 235, 0.2)0%, rgba(52, 162, 235, 0.3)91%);*/
+    background: linear-gradient(270deg, rgba(255, 255, 255, 1)35%, rgba(113, 219, 255, 0.23) 60%);
+    background: -moz-linear-gradient(270deg, rgba(255, 255, 255, 1)35%, rgba(113, 219, 255, 0.23)60%);
+    background: -webkit-linear-gradient(270deg, rgba(255, 255, 255, 1)35%, rgba(113, 219, 255, 0.23)60%);
+    background: -o-linear-gradient(270deg, rgba(255, 255, 255, 1)35%, rgba(113, 219, 255, 0.23) 60%);
+
+    /*background: linear-gradient(360deg, rgba(255, 216, 217, 1)11%, rgba(255, 255, 255, 1)60%);*/
+    /*background: -moz-linear-gradient(360deg, rgba(255, 216, 217, 1)11%, rgba(255, 255, 255, 1)60%);*/
+    /*background: -webkit-linear-gradient(360deg, rgba(255, 216, 217, 1)11%, rgba(255, 255, 255, 1)60%);*/
+    /*background: -o-linear-gradient(360deg, rgba(255, 216, 217, 1)11%, rgba(255, 255, 255, 1)60%);*/
+}
+
+#allpage {
+    width: 85%;
+    margin: 5px auto;
+
+}
+
+.content {
+    overflow: auto;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+aside {
+    margin-top: 20px;
+    float: left;
+    width: 15%;
+    /*margin-right: 5%;*/
+}
+
+article {
+    margin-top: 20px;
+    float: right;
+    width: 85%;
+    margin-left: auto;
+}
+
+
+footer {
+    width: 100%;
+    margin-top: 3em;
+    line-height: 2.5em;
+    text-align: center;
+    color: #ffffff;
+    background-color: rgba(102, 179, 255, 0.3);
+    border-radius: 10px;
+
+
+}
+.center-inline{
+    text-align: center;
+    vertical-align: middle;
+}
+
+.center-block{
+    float:none ;
+}

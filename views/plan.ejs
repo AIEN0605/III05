@@ -1,0 +1,95 @@
+<%- include('parts/html_head') %>
+<%- include('parts/navbar') %>
+<!-- 這裡放旅遊景點序列 -->
+<div>
+
+</div>
+<!-- 這裡放ifram -->
+<div id=google-ifram>
+</div>
+<div class="chatbox-background">
+  <div class="chatbot">
+    <!-- <div class="chatbot-title">小幫手!</div> -->
+    <div class="chat-output" id="chat-output">
+      <div class="user-message">
+        <div class="message">嗨~，我是你的旅遊規劃師，<br>請問想去哪裡玩呢？</div>
+      </div>
+    </div>
+    <div class="chat-input">
+      <form id="form2" method="post">
+        <input type="text" id="user-input" class="user-input" placeholder="Talk to the bot.">
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+<%- include('parts/scripts') %>
+<script>
+
+  var outputArea = $("#chat-output");
+  var outputiIfram = $('#google-ifram');
+
+  $("#form2").on("submit", function (e) {
+
+    e.preventDefault();
+
+    var message = $("#user-input").val();
+
+    // 將使用者輸入的字傳到上方output
+    outputArea.append(`
+        <div class='bot-message'>
+          <div class='message'>
+            ${message} 
+          </div>
+        </div>
+      `);
+
+    // 並將input的text格子清空
+    $("#user-input").val("");
+    // 這裡要放入由前端輸入的資料→進到後端與py連結處理後回傳給前端
+    $.post('/action', { action: message }, //轉為json送回去
+      function (data) {
+        // 如果使用者沒有傳送任何文字，回覆下列文字
+        if (data['vie'] == '') {
+          setTimeout(function () {
+            outputArea.append(`
+          <div class='user-message'>
+            <div class='message'>
+              咦？你還沒告訴我你想要做什麼耶<br>
+              跟我說說想做什麼事吧~<br>
+              如果沒有跟我說想去玩幾天的話，我就先幫你規劃一天的行程唷
+            </div>
+          </div>
+        `);
+          }, 250);
+        }
+        else {
+          //回傳推薦景點
+          setTimeout(function () {
+            outputArea.append(`
+          <div class='user-message'>
+            <div class='message'>
+              推薦景點：${data['vie']}<br>
+              正在幫你規劃${data['vie']}周邊景點${data['day']}天，請耐心等候唷
+            </div>
+          </div>
+        `);
+        //to do list : iframe src should be change https://www.google.com.tw/maps/dir/平溪老街/菁桐日式宿舍群/孝子山/十分天燈廣場/新平溪煤礦博物園區小火車(獨眼小僧)/十分老街/
+          //   outputiIfram.append(`
+          // <iframe width="1000" height="800" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=${data['gtoken']}&q=${data['recommend']}"allowfullscreen></iframe>`)
+          // }, 250);
+          outputiIfram.append(`
+          <iframe src="https://www.google.com/maps/embed?pb=!1m52!1m12!1m3!1d57838.607051488936!2d121.71731455413051!3d25.037028396420816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m37!3e6!4m5!1s0x345d512fffffffff%3A0x72b0cdebc3179a04!2z5bmz5rqq6ICB6KGXIDIyNuaWsOWMl-W4guW5s-a6quWNgOW5s-a6quihlw!3m2!1d25.0253087!2d121.73881929999999!4m5!1s0x345d56a86534a4d7%3A0x595ba4d0b17cbaad!2z6I-B5qGQ5pel5byP5a6_6IiN576kIOaWsOWMl-W4guW5s-a6quWNgA!3m2!1d25.021651!2d121.721792!4m5!1s0x345d56b433383e65%3A0xfd78c1ec83116b7d!2z5a2d5a2Q5bGx5q2l6YGTIDIyNuaWsOWMl-W4guW5s-a6quWNgOefs-W6leihlzI06Jmf!3m2!1d25.023004!2d121.73944499999999!4m5!1s0x345d50edd72b042d%3A0x20552815ac8f1cc4!2z5Y2B5YiG5aSp54eI5buj5aC0LCAyMjbmlrDljJfluILlubPmuqrljYA!3m2!1d25.0467946!2d121.7825742!4m5!1s0x345d50fb1effda81%3A0xbcef50d060750921!2z5paw5bmz5rqq54Wk56Sm5Y2a54mp5ZyS5Y2A5bCP54Gr6LuKKOeNqOecvOWwj-WDpykg5paw5YyX5biC5bmz5rqq5Y2AMjI2IOmggiDlr64g5a2QIDUg6Jmf!3m2!1d25.052581999999997!2d121.773496!4m5!1s0x345d512fffffffff%3A0xf6dec4403a7273be!2z5Y2B5YiG6ICB6KGXIDIyNuaWsOWMl-W4guW5s-a6quWNgA!3m2!1d25.0426687!2d121.7766757!5e0!3m2!1szh-TW!2stw!4v1582529421637!5m2!1szh-TW!2stw" width="1000" height="800" frameborder="0" style="border:0;" allowfullscreen=""></iframe>`)
+          }, 250);
+        }
+      });
+    return false
+
+  });
+        //# sourceURL=pen.js
+</script>
+
+
+<%- include('parts/html_foot') %>
